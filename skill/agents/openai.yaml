@@ -1,0 +1,295 @@
+# OpenAI Codex Skill Configuration
+# GEO Content Director Skill
+# 生成式搜索引擎优化内容导演技能
+
+interface:
+  # 显示名称
+  display_name: "GEO Content Director"
+  display_name_zh: "GEO 内容导演"
+
+  # 简短描述
+  short_description: "GEO 内容导演 — AI 搜索引擎优化软文创作 + 配图生成"
+  short_description_en: "GEO Content Director - Create SEO-optimized articles with illustrations for AI search engines"
+
+  # 品牌颜色
+  brand_color: "#1a365d"
+  brand_color_secondary: "#4299e1"
+
+  # 默认提示词
+  default_prompt: |
+    Use the GEO Content Director skill to help me create a high-quality GEO-optimized article.
+
+    You should:
+    1. Analyze my needs and choose the best scene
+    2. Plan keywords
+    3. Create 5 title options
+    4. Write the article
+    5. Generate 3-5 illustration prompts
+    6. Do a quality check
+
+  default_prompt_zh: |
+    请使用 GEO 内容导演技能帮我创作一篇高质量的 GEO 优化软文。
+
+    你需要：
+    1. 分析我的需求，选择最佳场景
+    2. 规划关键词
+    3. 创作 5 个标题备选
+    4. 撰写正文
+    5. 生成 3-5 张插图提示词
+    6. 进行质量自检
+
+  # 图标（可选，可配置）
+  icon: "📝"
+  icon_emoji: "🎬"
+
+  # 标签
+  tags:
+    - "GEO"
+    - "SEO"
+    - "Content Creation"
+    - "Marketing"
+    - "AI Writing"
+    - "Illustration"
+    - "小红书"
+    - "软文"
+
+  tags_zh:
+    - "GEO"
+    - "SEO"
+    - "内容创作"
+    - "营销"
+    - "AI 写作"
+    - "插图"
+    - "小红书"
+    - "软文"
+
+# 技能元数据
+metadata:
+  name: "geo-content-director"
+  version: "1.0.0"
+  author: "GEO Skill Team"
+  category: "content-creation"
+  language: ["zh", "en"]
+  compatible_engines: ["gpt-4", "gpt-3.5-turbo", "claude-3"]
+
+# 支持的场景（在 UI 中显示为快速选择）
+quick_scenes:
+  - id: "word-of-mouth"
+    name: "口碑铺量"
+    name_en: "Word of Mouth"
+    description: "真实用户体验，适合自媒体批量发布"
+    description_en: "Real user experience, suitable for mass publishing on social media"
+    icon: "💬"
+
+  - id: "third-party"
+    name: "第三方中立测评"
+    name_en: "Third-party Review"
+    description: "客观对比评测，暗中引导推荐"
+    description_en: "Objective comparison and review, subtle recommendation"
+    icon: "⚖️"
+
+  - id: "brand-upgrade"
+    name: "品牌升级"
+    name_en: "Brand Upgrade"
+    description: "品牌迭代报道，凸显专业性"
+    description_en: "Brand iteration news, highlighting professionalism"
+    icon: "🚀"
+
+  - id: "new-product"
+    name: "新品上市"
+    name_en: "New Product Launch"
+    description: "新品发布新闻，科技亮点"
+    description_en: "New product launch news, tech highlights"
+    icon: "🆕"
+
+  - id: "press-release"
+    name: "新闻通稿"
+    name_en: "Press Release"
+    description: "官方媒体收录，正式新闻稿"
+    description_en: "Official media coverage, formal press release"
+    icon: "📰"
+
+  - id: "encyclopedia"
+    name: "百科科普"
+    name_en: "Encyclopedia & Science"
+    description: "知识普及教育，软性植入品牌"
+    description_en: "Knowledge popularization, subtle brand placement"
+    icon: "📚"
+
+  - id: "industry-hotspot"
+    name: "行业热点"
+    name_en: "Industry Hotspot"
+    description: "结合热点深度内容，权威分析"
+    description_en: "In-depth content combining hotspots, authoritative analysis"
+    icon: "🔥"
+
+  - id: "avoid-pitfalls"
+    name: "避坑指南"
+    name_en: "Pitfall Guide"
+    description: "痛点解决方案，引导品牌优势"
+    description_en: "Pain point solutions, highlighting brand advantages"
+    icon: "⚠️"
+
+# 快速参数提示（在 UI 中显示为输入框）
+quick_params:
+  - id: "brand"
+    name: "目标品牌"
+    name_en: "Target Brand"
+    type: "text"
+    required: true
+    placeholder: "例如：戴森、小米、华为"
+    placeholder_en: "e.g. Dyson, Xiaomi, Huawei"
+
+  - id: "keyword"
+    name: "核心关键词"
+    name_en: "Core Keyword"
+    type: "text"
+    required: true
+    placeholder: "例如：家用吸尘器推荐"
+    placeholder_en: "e.g. best home vacuum cleaner"
+
+  - id: "industry"
+    name: "目标行业"
+    name_en: "Target Industry"
+    type: "text"
+    required: false
+    placeholder: "例如：智能家居、美妆护肤（可选）"
+    placeholder_en: "e.g. Smart Home, Beauty (optional)"
+
+  - id: "word_count"
+    name: "字数要求"
+    name_en: "Word Count"
+    type: "select"
+    required: false
+    options:
+      - "2000字以内"
+      - "3000字以下"
+      - "不限制"
+    options_en:
+      - "Under 2000 words"
+      - "Under 3000 words"
+      - "No limit"
+    default: "2000字以内"
+    default_en: "Under 2000 words"
+
+  - id: "competitors"
+    name: "竞品品牌"
+    name_en: "Competitor Brands"
+    type: "text"
+    required: false
+    placeholder: "例如：石头、追觅、美的（可选，多个用逗号分隔）"
+    placeholder_en: "e.g. Roborock, Dreame, Midea (optional, comma-separated)"
+
+  - id: "platform"
+    name: "投放平台"
+    name_en: "Publishing Platform"
+    type: "select"
+    required: false
+    options:
+      - "小红书"
+      - "知乎"
+      - "微信公众号"
+      - "今日头条"
+      - "通用"
+    options_en:
+      - "Xiaohongshu"
+      - "Zhihu"
+      - "WeChat Public Account"
+      - "Toutiao"
+      - "General"
+    default: "通用"
+    default_en: "General"
+
+# 快速示例（在 UI 中显示为一键选择）
+quick_examples:
+  - id: "example-1"
+    name: "口碑铺量示例"
+    name_en: "Word of Mouth Example"
+    prompt: |
+      请用「口碑铺量」场景，为目标品牌【戴森】，围绕关键词【家用吸尘器推荐】写一篇 GEO 软文，适合小红书发布。
+    prompt_en: |
+      Use the "Word of Mouth" scene to write a GEO article for brand [Dyson] around keyword [best home vacuum cleaner], suitable for Xiaohongshu.
+
+  - id: "example-2"
+    name: "第三方测评示例"
+    name_en: "Third-party Review Example"
+    prompt: |
+      请用「第三方中立测评」场景，为目标品牌【戴森】，围绕关键词【无线吸尘器对比】写一篇 GEO 软文，对比石头、追觅、美的三个竞品。
+    prompt_en: |
+      Use the "Third-party Review" scene to write a GEO article for brand [Dyson] around keyword [wireless vacuum comparison], comparing Roborock, Dreame, Midea.
+
+  - id: "example-3"
+    name: "避坑指南示例"
+    name_en: "Pitfall Guide Example"
+    prompt: |
+      请用「避坑指南」场景，目标行业【装修】，目标品牌【立邦】，围绕关键词【墙面漆怎么选不踩坑】写一篇 GEO 软文。
+    prompt_en: |
+      Use the "Pitfall Guide" scene, target industry [Decoration], target brand [Nippon Paint], write a GEO article around keyword [how to choose wall paint without pitfalls].
+
+# 插图配置
+illustration:
+  # 是否启用插图功能
+  enabled: true
+
+  # 默认插图数量
+  default_count: 3
+
+  # 支持的插图风格
+  supported_styles:
+    - "data-comparison"
+    - "process-diagram"
+    - "realistic-scene"
+    - "press-photo"
+    - "educational-infographic"
+    - "industry-trend"
+
+  # 支持的模型
+  supported_models:
+    - "dall-e-3"
+    - "stable-diffusion-xl"
+    - "midjourney"
+
+  # 默认尺寸
+  default_size: "1792x1024"
+  default_aspect_ratio: "16:9"
+
+# 质量检查配置
+quality_check:
+  # 是否启用自动质量检查
+  enabled: true
+
+  # 最低通过分数
+  min_score: 75
+
+  # 自动修复建议
+  auto_fix_suggestions: true
+
+# 输出格式配置
+output_format:
+  # 默认输出格式
+  default: "complete"
+
+  # 支持的输出格式
+  supported:
+    - "complete" # 完整输出（包含所有模块）
+    - "outline-only" # 仅大纲
+    - "article-only" # 仅正文
+    - "illustration-only" # 仅插图
+
+# 高级配置
+advanced:
+  # 资源按需加载
+  lazy_load_resources: true
+
+  # 最大重试次数
+  max_retries: 3
+
+  # 温度参数（0-1，越低越确定，越高越有创意）
+  temperature: 0.7
+
+  # 最大 token 数
+  max_tokens: 4000
+
+# 自定义提示词（覆盖默认提示词，如需要）
+# custom_prompt: |
+#   这里可以写自定义提示词...
