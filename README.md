@@ -221,6 +221,14 @@ MIT License
 
 ---
 
+## 💬 欢迎交流
+
+扫码添加微信，一起交流GEO优化和AI内容创作经验！
+
+![微信二维码](assets/wechat-qrcode.jpg)
+
+---
+
 ## 📚 参考
 
 - [xhs-visual-director-skill](https://github.com/ziguishian/xhs-visual-director-skill) - 参考的设计理念
